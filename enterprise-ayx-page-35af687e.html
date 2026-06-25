@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>爱游戏 · 持续探索的乐园</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background: #f1f3f4;
+      color: #2c2e33;
+      line-height: 1.7;
+      padding: 2rem 1rem;
+    }
+    .page {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    /* hero */
+    .hero {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 2.6rem 2.4rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.03), 0 1px 3px rgba(0,0,0,0.06);
+      border: 1px solid #e8eaed;
+      margin-bottom: 2rem;
+      transition: box-shadow 0.2s;
+    }
+    .hero:hover { box-shadow: 0 6px 18px rgba(0,0,0,0.04), 0 2px 6px rgba(0,0,0,0.06); }
+    .hero h1 {
+      font-size: 2rem;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      margin-bottom: 0.4rem;
+      color: #1f2024;
+    }
+    .hero .sub {
+      font-size: 1rem;
+      color: #5f6368;
+      border-left: 3px solid #b0b7c0;
+      padding-left: 1rem;
+      margin-top: 0.6rem;
+      max-width: 80%;
+    }
+
+    /* 卡片通用 */
+    .card {
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 1.8rem 2rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.02), 0 1px 2px rgba(0,0,0,0.03);
+      border: 1px solid #e6e9ed;
+      margin-bottom: 1.8rem;
+    }
+    .card h2 {
+      font-size: 1.35rem;
+      font-weight: 500;
+      color: #1f2024;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .card h2::before {
+      content: "▎";
+      color: #8b929a;
+      font-size: 1.5rem;
+    }
+    .card p {
+      margin-bottom: 0.85rem;
+      color: #3c4043;
+    }
+    .card p:last-child { margin-bottom: 0; }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.8rem;
+      margin-bottom: 1.8rem;
+    }
+
+    /* 特点小标签 */
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem 0.8rem;
+      margin: 1rem 0 0.2rem;
+    }
+    .tag-list span {
+      background: #f1f3f4;
+      border-radius: 30px;
+      padding: 0.25rem 1rem;
+      font-size: 0.85rem;
+      color: #3c4043;
+      border: 1px solid #dde0e4;
+    }
+
+    /* 使用场景条目 */
+    .scene-item {
+      display: flex;
+      gap: 0.8rem;
+      margin-bottom: 1.1rem;
+      align-items: flex-start;
+    }
+    .scene-item .num {
+      background: #e8eaed;
+      width: 28px;
+      height: 28px;
+      border-radius: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: #2c2e33;
+      flex-shrink: 0;
+      margin-top: 0.1rem;
+    }
+
+    /* 提示 & FAQ */
+    .note-box {
+      background: #f7f9fa;
+      border-left: 4px solid #b8bdc6;
+      padding: 1.2rem 1.6rem;
+      border-radius: 0 12px 12px 0;
+      margin: 1.2rem 0;
+    }
+    .faq-item {
+      border-bottom: 1px solid #eceef0;
+      padding: 0.9rem 0;
+    }
+    .faq-item:last-child { border-bottom: none; }
+    .faq-q {
+      font-weight: 500;
+      color: #1f2024;
+      margin-bottom: 0.25rem;
+    }
+    .faq-a {
+      color: #5f6368;
+      font-size: 0.94rem;
+    }
+
+    .link-sentence {
+      background: #fafbfc;
+      border-radius: 14px;
+      padding: 1.2rem 1.8rem;
+      border: 1px solid #e2e5e9;
+      margin: 1.6rem 0 0.4rem;
+      text-align: center;
+      font-size: 1rem;
+    }
+    .link-sentence a {
+      color: #1a5c9e;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px dashed #b0c6db;
+    }
+    .link-sentence a:hover {
+      border-bottom: 2px solid #1a5c9e;
+      color: #0b3d6b;
+    }
+
+    .footer-note {
+      text-align: center;
+      color: #8b929a;
+      font-size: 0.85rem;
+      margin-top: 2.8rem;
+      border-top: 1px solid #dfe2e6;
+      padding-top: 1.8rem;
+    }
+
+    @media (max-width: 680px) {
+      .grid-2 { grid-template-columns: 1fr; gap: 1.2rem; }
+      .hero { padding: 1.8rem 1.4rem; }
+      .hero .sub { max-width: 100%; }
+      .card { padding: 1.4rem 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <div class="hero">
+    <h1>再次遇见 · 爱游戏</h1>
+    <div class="sub">收藏一处轻松的入口，让发现的乐趣延续到日常缝隙里。</div>
+  </div>
+
+  <!-- 摘要卡片：为什么值得再次回来 -->
+  <div class="card">
+    <h2>随手可及的陪伴</h2>
+    <p>你也许只是偶然路过，但有些地方值得放进书签。每次打开 <a href="https://enterprise-ayx.com.cn" style="color:#1a5c9e; text-decoration:none; border-bottom:1px dashed #b0c6db;">爱游戏</a>，总能看到一些熟悉又新鲜的推荐，像在街角遇见老朋友，顺手就能聊上几句。这里没有压迫感，也没有复杂的学习门槛——它更像一个安静、整洁的小展台，展示着不同风格、不同平台的游戏内容，让你按照自己的节奏去探索。</p>
+    <p>如果你想在午休、通勤或睡前快速找到一点轻松的乐趣，把页面留在收藏夹里，就像在口袋里放了一颗随时可以剥开的糖。</p>
+  </div>
+
+  <!-- 亮点 + 特点 两列 -->
+  <div class="grid-2">
+    <div class="card">
+      <h2>亮点速览</h2>
+      <p>· 内容更新克制但持续，不会轰炸你的信息流。</p>
+      <p>· 分类清晰，从解谜到模拟经营，从独立小品到热门续作，都有简单介绍。</p>
+      <p>· 界面清爽，没有过度跳转，一个页面就能了解全貌。</p>
+      <div class="tag-list">
+        <span>无弹窗</span>
+        <span>轻浏览</span>
+        <span>收藏友好</span>
+        <span>周更</span>
+      </div>
+    </div>
+    <div class="card">
+      <h2>使用建议</h2>
+      <p>不必刻意安排时间——把它设为浏览器常驻标签页，或者添加到手机主屏幕。想看的时候点开，翻翻近期收录的作品，偶尔会有意外惊喜。</p>
+      <p>如果你对某个类型特别感兴趣，可以多留意站内的归纳标签，那里藏着不少同好者的共同记忆。</p>
+    </div>
+  </div>
+
+  <!-- 场景卡片：从再次访问的角度 -->
+  <div class="card">
+    <h2>三种熟悉的场景</h2>
+    <div class="scene-item">
+      <div class="num">1</div>
+      <div><strong>收藏夹的回头客</strong> — 还记得上个月顺手保存的页面吗？再次打开时，也许刚好有新内容在等你。保持关注，就像在连载杂志上追一个喜欢的专栏。</div>
+    </div>
+    <div class="scene-item">
+      <div class="num">2</div>
+      <div><strong>碎片时间补给站</strong> — 等咖啡、排队、休息的几分钟，不需要启动大型游戏，浏览几段介绍就能放松心情。轻量的内容刚好填满这些缝隙。</div>
+    </div>
+    <div class="scene-item">
+      <div class="num">3</div>
+      <div><strong>话题分享的中转站</strong> — 发现有趣的作品时，顺手把链接发给朋友，聊聊各自的体验。好的推荐往往就是这样自然流动的。</div>
+    </div>
+  </div>
+
+  <!-- 可信但克制的访问说明 + FAQ 摘要 -->
+  <div class="card">
+    <h2>一些简单说明</h2>
+    <p><a href="https://enterprise-ayx.com.cn" style="color:#1a5c9e; text-decoration:none; border-bottom:1px dashed #b0c6db;">爱游戏</a> 并非一个大型游戏商店或社交平台，不会要求你注册或下载额外软件。它主要提供游戏信息的整理和介绍，你可以自由浏览，再决定是否进一步了解某一款作品。所有内容均基于公开信息与编辑推荐，不包含诱导分享或夸大宣传。</p>
+    <div class="note-box">
+      提示：如果你在寻找特定类型的游戏，建议使用站内搜索或分类导航。信息会定期更新，但无法保证覆盖所有最新作品。
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">需要登录才能浏览吗？</div>
+      <div class="faq-a">不需要。直接打开页面即可查看所有内容，没有任何登录门槛。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">内容更新频率如何？</div>
+      <div class="faq-a">保持稳定的更新节奏，通常每周会有新增推荐或专题整理。你可以把页面加入收藏，方便回来时快速查看。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">会不会有弹窗或广告？</div>
+      <div class="faq-a">页面本身不包含弹窗广告，专注于内容呈现。偶尔会推荐相关作品，但会以清晰的方式标注。</div>
+    </div>
+  </div>
+
+  <!-- 自然嵌入链接的句子，再次强调收藏与持续关注 -->
+  <div class="link-sentence">
+    如果你觉得这个站点对胃口，不妨把 <a href="https://enterprise-ayx.com.cn">爱游戏</a> 加入收藏夹，下次想找点轻松的灵感时，就能直接回来逛逛。
+  </div>
+
+  <div class="footer-note">
+    保持好奇，保持轻松 · 一个可以反复回来的小角落
+  </div>
+
+</div>
+</body>
+</html>
