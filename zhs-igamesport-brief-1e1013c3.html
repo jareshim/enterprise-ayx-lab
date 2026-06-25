@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爱游戏体育｜赛事聚合·资讯平台</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f2f4f6;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            color: #1e2a38;
+            line-height: 1.6;
+            padding: 0 16px;
+        }
+
+        .page {
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 32px 0 48px;
+        }
+
+        /* Hero Banner */
+        .hero {
+            background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+            border-radius: 28px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04), 0 2px 6px rgba(0, 0, 0, 0.02);
+            padding: 48px 40px 40px;
+            margin-bottom: 40px;
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            position: relative;
+        }
+
+        .hero::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: #1e3a5f;
+            border-radius: 4px;
+            margin-top: 20px;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: #0a1929;
+            margin-bottom: 12px;
+        }
+
+        .hero .subhead {
+            font-size: 1.2rem;
+            color: #3f5468;
+            max-width: 640px;
+            font-weight: 400;
+            margin-bottom: 6px;
+        }
+
+        .hero .badge {
+            display: inline-block;
+            background: #e6edf5;
+            padding: 4px 16px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            color: #1a334b;
+            border: 1px solid #d0dae6;
+            margin-bottom: 16px;
+        }
+
+        /* 卡片通用 */
+        .card-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 32px 36px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02), 0 1px 3px rgba(0, 0, 0, 0.02);
+            border: 1px solid #e5e9ef;
+            transition: box-shadow 0.15s, transform 0.1s;
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
+            transform: translateY(-2px);
+        }
+
+        .card h2 {
+            font-size: 1.6rem;
+            font-weight: 500;
+            letter-spacing: -0.01em;
+            border-left: 5px solid #1e3a5f;
+            padding-left: 16px;
+            margin-bottom: 18px;
+            color: #0f1d2d;
+        }
+
+        .card h3 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-top: 20px;
+            margin-bottom: 8px;
+            color: #1f3b52;
+        }
+
+        .card p {
+            margin-bottom: 14px;
+            font-size: 1rem;
+            color: #2a3e52;
+        }
+
+        .card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .inset-list {
+            list-style: none;
+            margin: 12px 0 8px;
+        }
+
+        .inset-list li {
+            padding: 6px 0 6px 20px;
+            position: relative;
+            color: #1e364a;
+        }
+
+        .inset-list li::before {
+            content: '·';
+            position: absolute;
+            left: 4px;
+            color: #3a6a8a;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .faq-item {
+            border-top: 1px solid #e9edf2;
+            padding: 16px 0 8px;
+            margin-top: 8px;
+        }
+
+        .faq-item:first-of-type {
+            border-top: none;
+            padding-top: 0;
+            margin-top: 0;
+        }
+
+        .faq-item strong {
+            display: block;
+            font-weight: 500;
+            margin-bottom: 4px;
+            color: #0f232f;
+        }
+
+        .faq-item p {
+            font-size: 0.95rem;
+            color: #395066;
+            margin-bottom: 0;
+        }
+
+        .footer-cta {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 28px 36px;
+            border: 1px solid #e0e6ed;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+            margin-top: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .footer-cta p {
+            font-size: 1.05rem;
+            color: #1e3347;
+            margin: 0;
+            max-width: 75%;
+        }
+
+        .footer-cta a {
+            font-weight: 500;
+            color: #1e3a5f;
+            text-decoration: none;
+            border-bottom: 1.5px solid #b7c8da;
+            padding-bottom: 2px;
+            transition: border-color 0.2s, color 0.1s;
+        }
+
+        .footer-cta a:hover {
+            border-bottom-color: #1e3a5f;
+            color: #0a1a2b;
+        }
+
+        .footnote {
+            margin-top: 32px;
+            text-align: center;
+            font-size: 0.85rem;
+            color: #6b7e92;
+            border-top: 1px solid #dce2e9;
+            padding-top: 24px;
+        }
+
+        /* 响应式 */
+        @media (max-width: 700px) {
+            .hero {
+                padding: 32px 24px;
+            }
+            .hero h1 {
+                font-size: 2.0rem;
+            }
+            .card {
+                padding: 24px 20px;
+            }
+            .footer-cta {
+                flex-direction: column;
+                gap: 14px;
+                align-items: flex-start;
+            }
+            .footer-cta p {
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.7rem;
+            }
+            .card h2 {
+                font-size: 1.35rem;
+                padding-left: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <!-- hero 横幅 + 背景说明 -->
+        <section class="hero">
+            <span class="badge">体育资讯·赛事实时索引</span>
+            <h1>爱游戏体育</h1>
+            <p class="subhead">聚合主流赛事动态、球队数据与行业观察，为体育爱好者提供清晰的信息入口。</p>
+            <p style="color:#3f5a70; margin-top: 16px; font-size:0.95rem; max-width: 600px;">
+                平台覆盖足球、篮球、网球等十余个项目，以结构化面板呈现赛程、积分、转会及专题报告，方便用户快速定位所关注的内容。
+            </p>
+        </section>
+
+        <!-- 三段自然介绍 + 特点/场景 合并为卡片 -->
+        <div class="card-grid">
+            <!-- 卡片1：背景与定位 -->
+            <div class="card">
+                <h2>从信息过载到精要聚合</h2>
+                <p>每天数千条体育新闻、实时比分与社交媒体动态，往往让爱好者难以快速筛选有效信息。<strong>爱游戏体育</strong> 以数据整理和分类聚合为切入点，将赛事预告、战报摘要、核心统计与评论观点整合为统一信息流。面向的不仅是资深球迷，也包括偶尔关注大赛、希望快速掌握关键进展的普通用户。</p>
+                <p>界面保持低干扰设计，突出比赛时间、比分变化与重要事件节点，而非堆砌广告或无关推送。平台目前已建立涵盖五大联赛、NBA、欧冠、大满贯赛事及电竞体育的常态化更新机制。</p>
+            </div>
+
+            <!-- 卡片2：特点与使用场景 (自然介绍) -->
+            <div class="card">
+                <h2>模块化板块与实用场景</h2>
+                <p>每个项目主页均配置「即时赛况」「近期对阵」「积分/排名」「伤病&阵容」四个基础模块。例如在足球频道，用户可横向对比同轮次各场关键数据，无需逐个页面跳转。篮球板块则增加球员热区与回合效率等进阶指标摘要。</p>
+                <h3>常见使用场景</h3>
+                <ul class="inset-list">
+                    <li>工作日早晨快速浏览前一晚的比分与集锦；</li>
+                    <li>赛前查看双方交手记录与预计首发；</li>
+                    <li>赛季中期跟踪转会流言与球队薪资结构；</li>
+                    <li>大型赛事期间获取实时出线形势分析。</li>
+                </ul>
+                <p style="margin-top: 10px;">所有内容均标注来源与更新时间，用户可依据自身需要选择深度阅读或仅浏览关键行。</p>
+            </div>
+
+            <!-- 卡片3：FAQ摘要 + 简短提示 -->
+            <div class="card">
+                <h2>常见疑问摘要</h2>
+
+                <div class="faq-item">
+                    <strong>是否提供视频直播或付费内容？</strong>
+                    <p>本平台为信息聚合站点，不提供直播流或付费订阅内容。所有赛程、比分及新闻均来自公开数据与授权渠道，用户可据此跳转至官方直播或转播平台。</p>
+                </div>
+                <div class="faq-item">
+                    <strong>数据更新频率如何？</strong>
+                    <p>核心赛事（足球五大联赛、NBA、网球四大满贯等）在比赛日实现分钟级同步，非比赛日每日至少更新两次排名、伤病及转会动态。其他项目依据赛季节奏调整。</p>
+                </div>
+                <div class="faq-item">
+                    <strong>是否支持移动端浏览？</strong>
+                    <p>页面布局已根据手机与平板自适应调整。推荐使用现代浏览器以获得最佳卡片排版与交互效果。</p>
+                </div>
+                <div class="faq-item">
+                    <strong>如何反馈建议或报告错误？</strong>
+                    <p>网站底部设有联系表单（即将开放），也可通过社交媒体提及。团队会在工作日内响应。</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 页尾访问提示 + 链接（自然嵌入句子） -->
+        <div class="footer-cta">
+            <p>
+                若希望直接浏览完整赛事列表与各项目主页，可前往 
+                <a href="https://zhs-igamesport.com">爱游戏体育</a> 
+                查看最新整合面板。页面按联赛、日期与热门程度排序，帮助您快速进入信息核心区。
+            </p>
+            <span style="font-size:0.9rem; color:#5f778b; background: #edf2f7; padding: 6px 16px; border-radius: 30px;">
+                持续更新 · 精要索引
+            </span>
+        </div>
+
+        <div class="footnote">
+            基于公开信息整理 · 爱游戏体育 · 界面版本 2410
+        </div>
+    </div>
+</body>
+</html>
